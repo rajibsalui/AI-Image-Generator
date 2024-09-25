@@ -26,7 +26,7 @@ const Navbar = () => {
   const path=location.pathname.split("/");
   return (
     <Container>
-      GenAI{
+      Da Vinci{
         path[1] === "post"? (
         <Button
           onClick={() => navigation("/")}
