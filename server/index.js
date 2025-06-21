@@ -9,8 +9,10 @@ dotenv.config();
 
 const app = express();
 app.use(cors({
-  origin: '*',
-  credentials: false
+  origin: ['https://ai-image-generator-client-rajib-saluis-projects.vercel.app','http://localhost:3000'],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 
 app.use(express.json({ limit: "50mb" }));
