@@ -1,4 +1,14 @@
-# Getting Started with Create React App
+# AI Image Generator
+
+## Demo Video
+
+<!-- Alternative HTML5 video player if the above doesn't work -->
+<video width="800" controls>
+  <source src="./2025-09-13%2017-12-41.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
