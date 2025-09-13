@@ -1,80 +1,183 @@
 # AI Image Generator
 
+A full-stack web application that uses OpenAI's DALL-E API to generate images from text prompts. Users can create, share, and browse AI-generated images in a community gallery.
+
 ## Demo Video
 
-<!-- Alternative HTML5 video player if the above doesn't work -->
+<!-- Alternative HTML5 video player -->
 <video width="800" controls>
   <source src="./2025-09-13%2017-12-41.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
-## Getting Started with Create React App
+## Features
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- 🎨 **AI Image Generation**: Generate high-quality images using OpenAI's DALL-E API
+- 🖼️ **Community Gallery**: Browse and explore images created by other users
+- 🔍 **Smart Search**: Search images by prompt text or author name
+- 📱 **Responsive Design**: Fully responsive design that works on all devices
+- ☁️ **Cloud Storage**: Images stored securely using Cloudinary
+- 💾 **Download Images**: Save generated images directly to your device
+- 🌙 **Modern UI**: Clean, intuitive interface built with Material-UI
 
-## Available Scripts
+## Tech Stack
 
-In the project directory, you can run:
+### Frontend
+- **React 18** - Modern React with hooks
+- **Material-UI (MUI)** - Component library for consistent design
+- **Styled Components** - CSS-in-JS styling
+- **React Router** - Client-side routing
+- **Axios** - HTTP client for API calls
+- **React Lazy Load** - Optimized image loading
 
-### `npm start`
+### Backend
+- **Node.js** - JavaScript runtime
+- **Express.js** - Web application framework
+- **MongoDB** - NoSQL database with Mongoose ODM
+- **OpenAI API** - DALL-E integration for image generation
+- **Cloudinary** - Cloud image storage and optimization
+- **CORS** - Cross-origin resource sharing
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Project Structure
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+AI-Image-Generator/
+├── client/                 # React frontend
+│   ├── src/
+│   │   ├── components/     # Reusable UI components
+│   │   │   ├── GenerateImageForm.jsx
+│   │   │   ├── ImageCard.jsx
+│   │   │   ├── Navbar.jsx
+│   │   │   └── SearchBar.jsx
+│   │   ├── pages/         # Main application pages
+│   │   │   ├── Home.jsx
+│   │   │   └── CreatePost.jsx
+│   │   ├── api/           # API service functions
+│   │   └── utils/         # Utility functions and themes
+│   └── public/            # Static assets
+├── server/                # Node.js backend
+│   ├── controllers/       # Business logic
+│   │   ├── GenerateAIImage.js
+│   │   └── Posts.js
+│   ├── models/           # Database schemas
+│   │   └── Posts.js
+│   ├── routes/           # API route definitions
+│   │   ├── GenerateImage.js
+│   │   └── Posts.js
+│   └── index.js          # Server entry point
+└── README.md
+```
 
-### `npm test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
 
-### `npm run build`
+- Node.js (v14 or higher)
+- MongoDB database
+- OpenAI API key
+- Cloudinary account
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Environment Variables
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Create a `.env` file in the server directory:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```env
+OPENAI_API_KEY=your_openai_api_key_here
+MONGODB_URI=your_mongodb_connection_string
+CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+```
 
-### `npm run eject`
+### Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/rajibsalui/AI-Image-Generator.git
+   cd AI-Image-Generator
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. **Install server dependencies**
+   ```bash
+   cd server
+   npm install
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. **Install client dependencies**
+   ```bash
+   cd ../client
+   npm install
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. **Start the development servers**
 
-## Learn More
+   **Backend (from server directory):**
+   ```bash
+   npm start
+   ```
+   Server runs on http://localhost:8080
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   **Frontend (from client directory):**
+   ```bash
+   npm start
+   ```
+   Client runs on http://localhost:3000
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## API Endpoints
 
-### Code Splitting
+### Image Generation
+- `POST /api/` - Generate image from text prompt
+- `POST /api/post` - Save generated image to community gallery
+- `GET /api/` - Retrieve all community images
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Usage
 
-### Analyzing the Bundle Size
+1. **Generate Images**: Enter a descriptive text prompt and click "Generate Image"
+2. **Share with Community**: After generating an image, add your name and share it with the community
+3. **Browse Gallery**: Explore images created by other users on the home page
+4. **Search**: Use the search bar to find specific images by prompt or author
+5. **Download**: Click on any image to download it to your device
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Key Components
 
-### Making a Progressive Web App
+### Frontend Components
+- **GenerateImageForm**: Main form for creating AI images
+- **ImageCard**: Displays individual images in the gallery
+- **SearchBar**: Enables searching through the image collection
+- **Navbar**: Navigation component
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Backend Controllers
+- **GenerateAIImage**: Handles OpenAI API integration
+- **Posts**: Manages CRUD operations for image posts
 
-### Advanced Configuration
+## Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Backend Deployment (Vercel)
+The server includes a `vercel.json` configuration for easy deployment to Vercel.
 
-### Deployment
+### Frontend Deployment
+The React app can be deployed to any static hosting service like Netlify, Vercel, or GitHub Pages.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Contributing
 
-### `npm run build` fails to minify
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## Acknowledgments
+
+- OpenAI for the DALL-E API
+- Cloudinary for image storage solutions
+- Material-UI for the component library
+- The React and Node.js communities
+
+## Support
+
+If you found this project helpful, please give it a ⭐ on GitHub!Generator
+
